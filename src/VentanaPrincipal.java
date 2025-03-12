@@ -209,7 +209,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         for (int i = 0; i < soloLeafs.size(); i++) {
             char caracterText = soloLeafs.get(i).getCaracter();
             String direccion = arbolPrincipal.direccionNodo(caracterText, arbolPrincipal.getRaiz(), "");
-            float porcentajeCompressed = ((float) direccion.length()/8)*100;
+            float porcentajeCompressed = ((float) 1 - (float)direccion.length()/8)*100;
             tabla.addRow(new Object[] {caracterText, soloLeafs.get(i).getFrecuencia(), direccion, porcentajeCompressed});
         }
         this.jtable_info.setModel(tabla);
