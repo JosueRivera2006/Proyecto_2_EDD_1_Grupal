@@ -27,6 +27,20 @@ public class Arbol {
         this.raiz = raiz;
     }
     
+    public String direccionNodo(char valor, Nodo lista, String direccion) {
+        if(lista.getCaracter() == valor) {
+            return direccion;
+        }
+        if(lista.getHijos().size() == 0) {
+            return "";
+        }
+        String segundoHijo = direccionNodo(valor, lista.getUnHijo(1), direccion + 1);
+        if(!segundoHijo.isEmpty()) {
+            return segundoHijo;
+        }
+        return direccionNodo(valor, lista.getUnHijo(0), direccion + 0);
+    }
+    
     public void construyendoArbol(ArrayList<Nodo> lista) {
         if(lista.size() == 1) {
             raiz = lista.get(0);
@@ -53,5 +67,15 @@ public class Arbol {
                 imprimiendoArbol(v.getUnHijo(i));
             }
         }
+    }
+    public ArrayList<Nodo> retornarSoloLeafs(ArrayList<Nodo> hojas, Nodo nodo) {
+        if(nodo.getHijos().size() == 0) {
+            hojas.add(nodo);
+        } else {
+            for (int i = 0; i < nodo.getHijos().size(); i++) {
+                retornarSoloLeafs(hojas, nodo.getUnHijo(i));
+            }
+        }
+        return hojas;
     }
 }
