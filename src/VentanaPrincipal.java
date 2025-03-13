@@ -39,6 +39,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jtxt_bitsInicio = new javax.swing.JTextField();
         jtxt_bitsFinales = new javax.swing.JTextField();
+        bt_ordenMayor = new javax.swing.JButton();
+        bt_ordenMenor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +92,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel6.setText("Compressed File:");
 
+        bt_ordenMayor.setText("↑");
+        bt_ordenMayor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_ordenMayorMouseClicked(evt);
+            }
+        });
+        bt_ordenMayor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_ordenMayorActionPerformed(evt);
+            }
+        });
+
+        bt_ordenMenor.setText("↓");
+        bt_ordenMenor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_ordenMenorMouseClicked(evt);
+            }
+        });
+        bt_ordenMenor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_ordenMenorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,16 +139,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(265, 265, 265)
+                        .addGap(122, 122, 122)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bt_ordenMayor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bt_ordenMenor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(97, 97, 97)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(92, 92, 92)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jtxt_bitsFinales, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                                 .addComponent(jtxt_bitsInicio)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jtxt_porcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -140,34 +169,42 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbutton_cargar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbt_abrirBinario, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxt_porcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtxt_bitsInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtxt_bitsFinales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                        .addGap(62, 62, 62)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtxt_porcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jtxt_bitsInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jtxt_bitsFinales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(78, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bt_ordenMayor, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(bt_ordenMenor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(187, 187, 187))))
         );
 
         pack();
@@ -256,15 +293,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // abrir archivo de texto
         JFileChooser election = new JFileChooser();
         int state = election.showOpenDialog(this);
-        if(JFileChooser.APPROVE_OPTION == state) {
+        if (JFileChooser.APPROVE_OPTION == state) {
             try {
-            File archivo = election.getSelectedFile();
-            BufferedReader br = new BufferedReader(new FileReader(archivo));
-            String caracteres = "";
-                while(caracteres != null) {
+                File archivo = election.getSelectedFile();
+                BufferedReader br = new BufferedReader(new FileReader(archivo));
+                String caracteres = "";
+                while (caracteres != null) {
                     caracteres = br.readLine();
-                    if(caracteres != null) {
-                        this.jtxt_area_inicio.append(caracteres+"\n");
+                    if (caracteres != null) {
+                        this.jtxt_area_inicio.append(caracteres + "\n");
                         texto += caracteres;
                     }
                 }
@@ -280,6 +317,82 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         modificarTabla();
     }//GEN-LAST:event_jbutton_cargarActionPerformed
 
+    private void bt_ordenMayorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ordenMayorMouseClicked
+        DefaultTableModel tabla = (DefaultTableModel) jtable_info.getModel();//ordenamiento de la tabla por frecuencia del mayor al menor
+
+        for (int contador = 0; contador < tabla.getRowCount() - 1; contador++) {
+            for (int cont = 0; cont < tabla.getRowCount() - 1 - contador; cont++) {
+                int frecuencia1 = (int) tabla.getValueAt(cont, 1);
+                int frecuencia2 = (int) tabla.getValueAt(cont + 1, 1);
+
+                if (frecuencia1 < frecuencia2) { // Orden descendente
+                    for (int cont2 = 0; cont2 < tabla.getColumnCount(); cont2++) {
+                        Object temp = tabla.getValueAt(cont, cont2);
+                        tabla.setValueAt(tabla.getValueAt(cont + 1, cont2), cont, cont2);
+                        tabla.setValueAt(temp, cont + 1, cont2);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_bt_ordenMayorMouseClicked
+
+    private void bt_ordenMenorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ordenMenorMouseClicked
+        DefaultTableModel tabla = (DefaultTableModel) jtable_info.getModel();//ordenamiento de la tabla por frecuencia del mayor al menor
+
+        for (int contador = 0; contador < tabla.getRowCount() - 1; contador++) {
+            for (int cont = 0; cont < tabla.getRowCount() - 1 - contador; cont++) {
+                int frecuencia1 = (int) tabla.getValueAt(cont, 1);
+                int frecuencia2 = (int) tabla.getValueAt(cont + 1, 1);
+
+                if (frecuencia1 > frecuencia2) { // Orden descendente
+                    for (int cont2 = 0; cont2 < tabla.getColumnCount(); cont2++) {
+                        Object temp = tabla.getValueAt(cont, cont2);
+                        tabla.setValueAt(tabla.getValueAt(cont + 1, cont2), cont, cont2);
+                        tabla.setValueAt(temp, cont + 1, cont2);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_bt_ordenMenorMouseClicked
+
+    private void bt_ordenMenorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ordenMenorActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel tabla = (DefaultTableModel) jtable_info.getModel();//ordenamiento de la tabla por frecuencia del mayor al menor
+        for (int contador = 0; contador < tabla.getRowCount() - 1; contador++) {
+            for (int cont = 0; cont < tabla.getRowCount() - 1 - contador; cont++) {
+                int frecuencia1 = (int) tabla.getValueAt(cont, 1);
+                int frecuencia2 = (int) tabla.getValueAt(cont + 1, 1);
+
+                if (frecuencia1 > frecuencia2) { // Orden descendente
+                    for (int cont2 = 0; cont2 < tabla.getColumnCount(); cont2++) {
+                        Object temp = tabla.getValueAt(cont, cont2);
+                        tabla.setValueAt(tabla.getValueAt(cont + 1, cont2), cont, cont2);
+                        tabla.setValueAt(temp, cont + 1, cont2);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_bt_ordenMenorActionPerformed
+
+    private void bt_ordenMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ordenMayorActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel tabla = (DefaultTableModel) jtable_info.getModel();//ordenamiento de la tabla por frecuencia del menor al mayor
+        for (int contador = 0; contador < tabla.getRowCount() - 1; contador++) {
+            for (int cont = 0; cont < tabla.getRowCount() - 1 - contador; cont++) {
+                int frecuencia1 = (int) tabla.getValueAt(cont, 1);
+                int frecuencia2 = (int) tabla.getValueAt(cont + 1, 1);
+
+                if (frecuencia1 < frecuencia2) { // Orden descendente
+                    for (int cont2 = 0; cont2 < tabla.getColumnCount(); cont2++) {
+                        Object temp = tabla.getValueAt(cont, cont2);
+                        tabla.setValueAt(tabla.getValueAt(cont + 1, cont2), cont, cont2);
+                        tabla.setValueAt(temp, cont + 1, cont2);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_bt_ordenMayorActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -289,6 +402,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_ordenMayor;
+    private javax.swing.JButton bt_ordenMenor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
