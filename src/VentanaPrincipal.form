@@ -277,8 +277,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxt_bitsInicio">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxt_bitsFinales">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="bt_ordenMayor">
       <Properties>

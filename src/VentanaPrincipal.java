@@ -92,6 +92,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel6.setText("Compressed File:");
 
+        jtxt_bitsInicio.setEditable(false);
+
+        jtxt_bitsFinales.setEditable(false);
+
         bt_ordenMayor.setText("↑");
         bt_ordenMayor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -288,6 +292,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         }
     }
+    public void decodificacion() {
+        String textDecoded = this.arbolPrincipal.decodificacion("", this.jtxt_area_codificado.getText().replaceAll("\n", ""), this.arbolPrincipal.getRaiz(), 0);
+        this.jtxt_area_decodificado.setText(textDecoded);
+    }
     private void jbutton_cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutton_cargarActionPerformed
         // TODO add your handling code here:
         // abrir archivo de texto
@@ -315,11 +323,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //arbolPrincipal.imprimiendoArbol(arbolPrincipal.getRaiz());
         textoCodificado();
         modificarTabla();
+        decodificacion();
     }//GEN-LAST:event_jbutton_cargarActionPerformed
 
     private void bt_ordenMayorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ordenMayorMouseClicked
         DefaultTableModel tabla = (DefaultTableModel) jtable_info.getModel();//ordenamiento de la tabla por frecuencia del mayor al menor
-
         for (int contador = 0; contador < tabla.getRowCount() - 1; contador++) {
             for (int cont = 0; cont < tabla.getRowCount() - 1 - contador; cont++) {
                 int frecuencia1 = (int) tabla.getValueAt(cont, 1);
@@ -357,7 +365,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void bt_ordenMenorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ordenMenorActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel tabla = (DefaultTableModel) jtable_info.getModel();//ordenamiento de la tabla por frecuencia del mayor al menor
+        DefaultTableModel tabla = (DefaultTableModel) jtable_info.getModel();//ordenamiento de la tabla por frecuencia del menor al mayor
         for (int contador = 0; contador < tabla.getRowCount() - 1; contador++) {
             for (int cont = 0; cont < tabla.getRowCount() - 1 - contador; cont++) {
                 int frecuencia1 = (int) tabla.getValueAt(cont, 1);
@@ -376,7 +384,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void bt_ordenMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ordenMayorActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel tabla = (DefaultTableModel) jtable_info.getModel();//ordenamiento de la tabla por frecuencia del menor al mayor
+        DefaultTableModel tabla = (DefaultTableModel) jtable_info.getModel();//ordenamiento de la tabla por frecuencia del mayor al menor
         for (int contador = 0; contador < tabla.getRowCount() - 1; contador++) {
             for (int cont = 0; cont < tabla.getRowCount() - 1 - contador; cont++) {
                 int frecuencia1 = (int) tabla.getValueAt(cont, 1);

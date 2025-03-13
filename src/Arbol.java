@@ -26,7 +26,6 @@ public class Arbol {
     public void setRaiz(Nodo raiz) {
         this.raiz = raiz;
     }
-    
     public String direccionNodo(char valor, Nodo lista, String direccion) {
         if(lista.getCaracter() == valor) {
             return direccion;
@@ -40,7 +39,19 @@ public class Arbol {
         }
         return direccionNodo(valor, lista.getUnHijo(0), direccion + 0);
     }
-    
+    public String decodificacion(String textDecoded, String originalText, Nodo comienzo, int contador) {
+        if(comienzo.getHijos().size() == 0) {
+            return decodificacion(textDecoded + comienzo.getCaracter(), originalText, this.raiz, contador++);
+        }
+        if(originalText.length() - 1 < contador) {
+            return textDecoded;
+        }
+        if (originalText.charAt(contador) == '0') {
+            return decodificacion(textDecoded, originalText, comienzo.getUnHijo(0), contador + 1);
+        } else {
+            return decodificacion(textDecoded, originalText, comienzo.getUnHijo(1), contador + 1);
+        }
+    }
     public void construyendoArbol(ArrayList<Nodo> lista) {
         if(lista.size() == 1) {
             raiz = lista.get(0);
